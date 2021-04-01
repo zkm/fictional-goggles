@@ -7,7 +7,6 @@ const Book = ({ book }) => {
 
 	if (cover_i.length == null && cover_i !== -1) {
 		cover_image = <img src={`https://covers.openlibrary.org/b/id/${cover_i}.jpg`} alt="cover" />;
-		console.log(cover_i, cover_i.length);
 	}
 
 	return (

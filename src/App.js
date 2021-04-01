@@ -23,7 +23,8 @@ class App extends Component {
 			<Fragment>
 				<section>
 					<div className="container">
-						<h1>Open Library book search</h1>
+						<h1>Fictional Goggles</h1>
+						<h2>Open Library book search</h2>
 					</div>
 				</section>
 				<Search onQueryChange={this.onQueryChange} onSearch={this.onSearch} query={this.state.query} />

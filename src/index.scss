@@ -1,102 +1,90 @@
 $font-stack: Helvetica, sans-serif;
 $primary-color: #333;
+$secondary-color: #4a4a4a;
+$link-color: #209cee;
+$button-text: #fff;
+$border-color: #dbdbdb;
 
 *,
 *::before,
 *::after {
 	box-sizing: inherit;
 }
-
 body {
-	font: 100% $font-stack;
 	color: $primary-color;
+	font: 100% $font-stack;
 }
-
 a {
-	color: #3273dc;
+	color: $link-color;
 	cursor: pointer;
 	text-decoration: none;
 }
-
 p {
-	margin-bottom: 1.5rem;
-	color: #4a4a4a;
+	color: $primary-color;
+	display: block;
 	font-size: 1.25rem;
 	font-weight: 400;
 	line-height: 1.25;
+	margin-bottom: 1.5rem;
+	width: 100%;
 }
-
 h1 {
-	color: #363636;
+	color: $primary-color;
 	font-size: 2rem;
 	font-weight: 600;
 	line-height: 1.125;
-	word-break: break-word;
 	text-align: center;
+	word-break: break-word;
 }
-
+h2 {
+	color: $primary-color;
+	font-size: 1.75rem;
+	font-weight: 400;
+	line-height: 1.125;
+	word-break: break-word;
+}
 img {
 	max-width: 100%;
 }
-
 section {
 	padding: 0 1.5rem;
 }
-
 input {
-	background-color: white;
-	color: #363636;
-	box-shadow: rgba(10, 10, 10, 0.1) 1px 1px 2px 1px inset;
-	max-width: 100%;
-	width: 100%;
-	align-items: center;
-	border-color: #dbdbdb;
 	border: 1px solid transparent;
 	border-radius: 4px;
-	border-bottom-right-radius: 0;
-	border-top-right-radius: 0;
+	box-shadow: $border-color 1px 1px 2px 1px inset;
+	color: $primary-color;
 	display: inline-flex;
-	font-size: 1rem;
+	font-size: 1.5rem;
 	height: 2.25em;
-	justify-content: flex-start;
 	line-height: 1.5;
-	padding-bottom: calc(0.375em - 1px);
-	padding-left: calc(0.625em - 1px);
-	padding-right: calc(0.625em - 1px);
-	padding-top: calc(0.375em - 1px);
+	padding: calc(0.375em - 1px) calc(0.625em - 1px);
 	position: relative;
-	vertical-align: top;
-	font-size: 1.5rem;
+	width: 100%;
 }
-
 button {
-	border-bottom-left-radius: 0;
-	border-top-left-radius: 0;
-	font-size: 1.5rem;
-	background-color: #209cee;
+	align-items: center;
+	background-color: $link-color;
+	border: 1px solid transparent;
 	border-color: transparent;
-	color: #fff;
-	border-width: 1px;
-	cursor: pointer;
+	border-radius: 0 4px 4px 0;
+	box-shadow: none;
+	color: $button-text;
+	display: inline-flex;
+	font-size: 1.5rem;
+	height: 2.25em;
 	justify-content: center;
-	padding-bottom: calc(0.375em - 1px);
-	padding-left: 0.75em;
-	padding-right: 0.75em;
-	padding-top: calc(0.375em - 1px);
+	line-height: 1.5;
+	padding: calc(0.375em - 1px) 0.75em;
 	text-align: center;
 	white-space: nowrap;
-	align-items: center;
-	border: 1px solid transparent;
-	border-radius: 4px;
-	box-shadow: none;
-	display: inline-flex;
-	height: 2.25em;
-	line-height: 1.5;
-	position: relative;
-	vertical-align: top;
 }
-
-.container {
+.flex-container {
+	display: flex;
+	flex-wrap: wrap;
+}
+.container,
+.flex-container {
 	margin: 0 auto;
 	position: relative;
 
@@ -108,14 +96,18 @@ button {
 		max-width: 1152px;
 		width: 1152px;
 	}
-
 	@media screen and (min-width: 1088px) {
 		max-width: 960px;
 		width: 960px;
 	}
 }
 
-.field .control {
+.field {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.control {
 	clear: both;
 	font-size: 1rem;
 	position: relative;
@@ -123,34 +115,58 @@ button {
 	&:first-child {
 		flex-grow: 1;
 	}
-}
-
-.field {
-	display: flex;
-	justify-content: flex-start;
 	&:not(:last-child) {
 		margin-right: -1px;
 	}
 }
-
 .book {
-	border-radius: 0.25rem;
-	box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
-	color: #4a4a4a;
+	border-radius: 1.25rem;
+	box-shadow: 0 0.5em 1em -0.125em $border-color;
+	color: $primary-color;
+	height: fit-content;
+	flex: 1 1 25%;
+	margin: 0 .5em 2em;
 	max-width: 100%;
 	position: relative;
-	display: inline-block;
-
+	.book-cover {
+		width: 100%;
+		text-align: center;
+		img {
+			display: block;
+			margin: auto;
+		}
+	}
 	.book-content {
-		padding: 1.5rem;
+		padding: 0 1.5rem;
+	}
+	.book-cover,
+	.book-title {
+		margin: 0;
+	}
+
+	.book-title {
+		color: $primary-color;
+		font-size: 2rem;
+		font-weight: 600;
+		line-height: 1.125;
+		margin: 0;
+	}
+	.book-author {
+		color: $secondary-color;
+		font-size: 1.25rem;
+		font-weight: 400;
+		line-height: 1.25;
+		margin: .5rem 0 1.5rem;
 	}
 }
-
 .book-footer {
-	background-color: transparent;
-	border-top: 1px solid #dbdbdb;
-	align-items: stretch;
 	display: flex;
+	width: 100%;
+	height: 50px;
+	margin: auto;
+	border-top: 1px solid $border-color;
+	align-items: center;
+	justify-content: center;
 
 	a {
 		align-items: center;

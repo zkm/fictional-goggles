@@ -3,6 +3,6 @@ import App from './App';
 
 test('renders h1 title', () => {
 	render(<App />);
-	const titleElement = screen.getByText(/Open Library book search/i);
+	const titleElement = screen.getByText(/Fictional Goggles/i);
 	expect(titleElement).toBeInTheDocument();
 });

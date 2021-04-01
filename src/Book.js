@@ -1,12 +1,12 @@
 import React from 'react';
 
 const Book = ({ book }) => {
-	const { title, author_name = [], key } = book;
+	const { title, author_name, cover_i = [], key } = book;
 
 	return (
 		<div className="book">
 			<p className="book-cover">
-				<img src="https://placekitten.com/g/465/475" alt="cover" />
+				{cover_i ? <img src={`http://covers.openlibrary.org/b/id/${cover_i}.jpg`} alt="cover" /> : ''}
 			</p>
 			<div className="book-content">
 				<p className="book-title">
@@ -18,8 +18,7 @@ const Book = ({ book }) => {
 					</p>}
 			</div>
 			<footer className="book-footer">
-				<a href={`https://openlibrary.org${key}`}>Add Book</a>
-				<a href={`https://openlibrary.org${key}`}>Remove Book</a>
+				<a href={`https://openlibrary.org${key}`}>Add/Remove Book</a>
 			</footer>
 		</div>
 	);

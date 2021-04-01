@@ -4,7 +4,7 @@ import Book from './Book';
 const BookList = ({ loading = false, books = [], count = 0 }) => {
 	return (
 		<section>
-			<div className="container">
+			<div className="flex-container">
 				{loading}
 				{books.length > 0 &&
 					<p>

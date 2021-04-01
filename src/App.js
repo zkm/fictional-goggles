@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
-import * as client from './OpenLibraryClient';
-import BookList from './BookList';
-import Search from './Search';
+import * as client from './api/OpenLibraryClient';
+import BookList from './components/BookList';
+import Search from './components/Search';
 
 class App extends Component {
 	state = { books: [], isFetching: false, query: '', numFound: 0 };

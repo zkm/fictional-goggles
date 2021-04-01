@@ -2,11 +2,12 @@ import React from 'react';
 
 const Book = ({ book }) => {
 	const { title, author_name, cover_i = [], key } = book;
-
 	return (
 		<div className="book">
 			<p className="book-cover">
-				{cover_i ? <img src={`http://covers.openlibrary.org/b/id/${cover_i}.jpg`} alt="cover" /> : ''}
+				{cover_i
+					? <img src={`http://covers.openlibrary.org/b/id/${cover_i}.jpg`} alt="cover" />
+					: <img src="/public/no-book-cover-available.jpg" alt="cover" />}
 			</p>
 			<div className="book-content">
 				<p className="book-title">

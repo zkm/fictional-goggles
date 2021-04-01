@@ -3,7 +3,7 @@ $primary-color: #333;
 $secondary-color: #4a4a4a;
 $link-color: #209cee;
 $button-text: #fff;
-$border-color: #dbdbdb;
+$shadow-color: #dbdbdb;
 
 *,
 *::before,
@@ -50,9 +50,9 @@ section {
 	padding: 0 1.5rem;
 }
 input {
-	border: 1px solid transparent;
+	border: 1px solid $shadow-color;
 	border-radius: 4px;
-	box-shadow: $border-color 1px 1px 2px 1px inset;
+	box-shadow: $secondary-color 1px 1px 2px 1px inset;
 	color: $primary-color;
 	display: inline-flex;
 	font-size: 1.5rem;
@@ -121,7 +121,7 @@ button {
 }
 .book {
 	border-radius: 1.25rem;
-	box-shadow: 0 0.5em 1em -0.125em $border-color;
+	box-shadow: 0 0.5em 1em -0.125em $shadow-color;
 	color: $primary-color;
 	height: fit-content;
 	flex: 1 1 25%;
@@ -164,7 +164,7 @@ button {
 	width: 100%;
 	height: 50px;
 	margin: auto;
-	border-top: 1px solid $border-color;
+	border-top: 1px solid $shadow-color;
 	align-items: center;
 	justify-content: center;
 

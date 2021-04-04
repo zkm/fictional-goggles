@@ -1,4 +1,5 @@
 import React from 'react';
+import AddBook from './AddBook';
 import coverPlaceholder from '../images/no-book-cover-available.jpg';
 
 const Book = ({ book }) => {
@@ -24,7 +25,7 @@ const Book = ({ book }) => {
 					</p>}
 			</div>
 			<footer className="book-footer">
-				<a href={`https://openlibrary.org${key}`}>Add/Remove Book</a>
+				<AddBook bookTitle={title} bookAuthor={author_name} bookKey={key} />
 			</footer>
 		</div>
 	);

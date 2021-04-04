@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 
 const AddBook = () => {
-	const [removeBook, addBook] = useState(false);
+	const [removedBook, addedBook] = useState(false);
+	const addBook = () => {
+		addedBook(!removedBook);
+	};
+
 	return (
 		<div>
 			<button onClick={() => addBook(true)}>
-				{removeBook ? 'Remove' : 'Add'} Book
+				{removedBook ? 'Remove' : 'Add'} Book
 			</button>
 		</div>
 	);

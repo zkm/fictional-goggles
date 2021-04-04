@@ -25,4 +25,11 @@ class Search extends React.Component {
 		);
 	}
 }
+
+Search.propTypes = {
+	query: PropTypes.string.isRequired,
+	onQueryChange: PropTypes.string.isRequired,
+	onSearch: PropTypes.string.isRequired
+};
+
 export default Search;

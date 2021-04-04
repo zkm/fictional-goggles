@@ -1,9 +1,9 @@
 import { stringify } from 'query-string';
 
-const BASE_URL = 'https://openlibrary.org';
+const DOMAIN = 'openlibrary.org';
 
 const get = async (uri, params) => {
-	const url = `${BASE_URL}${uri}?${stringify(params)}`;
+	const url = `https://${DOMAIN}${uri}?${stringify(params)}`;
 
 	const response = await fetch(url, {
 		cache: 'no-cache',

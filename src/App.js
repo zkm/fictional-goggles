@@ -3,7 +3,7 @@ import * as client from './api/OpenLibraryClient';
 import BookList from './components/BookList';
 import Search from './components/Search';
 
-class App extends Component {
+class App extends React.Component {
 	state = { books: [], isFetching: false, query: '', numFound: 0 };
 
 	onSearch = async e => {

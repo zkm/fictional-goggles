@@ -3,7 +3,7 @@ import AddBook from './AddBook';
 import coverPlaceholder from '../images/no-book-cover-available.jpg';
 
 const Book = ({ book }) => {
-	const { title, author_name, cover_i = [], key } = book;
+	const { title, author_name, cover_i = [] } = book;
 	let cover_image;
 
 	if (cover_i.length == null && cover_i !== -1) {
@@ -25,7 +25,7 @@ const Book = ({ book }) => {
 					</p>}
 			</div>
 			<footer className="book-footer">
-				<AddBook bookTitle={title} bookAuthor={author_name} bookKey={key} />
+				<AddBook bookTitle={title} bookAuthor={author_name} />
 			</footer>
 		</div>
 	);

@@ -1,14 +1,14 @@
-import React from 'react';
-const BASE_DOMAIN = 'https://openlibrary.org';
+import React, { useState } from 'react';
 
-class AddBook extends React.Component {
-	render() {
-		return (
-			<div>
-				<a href={`https://${BASE_DOMAIN}${this.props.bookKey}`}>Add Book</a>
-			</div>
-		);
-	}
-}
+const AddBook = () => {
+	const [removeBook, addBook] = useState(false);
+	return (
+		<div>
+			<button onClick={() => addBook(true)}>
+				{removeBook ? 'Remove' : 'Add'} Book
+			</button>
+		</div>
+	);
+};
 
 export default AddBook;

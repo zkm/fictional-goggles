@@ -135,6 +135,7 @@ button {
 		img {
 			display: block;
 			margin: auto;
+			max-width: 150px;
 		}
 	}
 	.book-content {
@@ -158,6 +159,9 @@ button {
 		font-weight: 400;
 		line-height: 1.25;
 		margin: .5rem 0 1.5rem;
+	}
+	.book-added & {
+		flex: 1 1 10%;
 	}
 }
 .book-footer {

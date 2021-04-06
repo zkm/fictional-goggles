@@ -1,6 +1,6 @@
 import { stringify } from 'query-string';
 
-const BASE_DOMAIN = 'openlibrary.org';
+export const BASE_DOMAIN = 'openlibrary.org';
 
 const get = async (uri, params) => {
 	const url = `https://${BASE_DOMAIN}${uri}?${stringify(params)}`;

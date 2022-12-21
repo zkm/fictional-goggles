@@ -84,6 +84,14 @@ button {
   display: flex;
   flex-wrap: wrap;
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 50px;
+  padding: 50px 100px;
+}
+
 .container,
 .flex-container {
   margin: 0 auto;

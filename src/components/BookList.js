@@ -9,14 +9,16 @@ const BookList = ({
 }) => {
   return (
     <section>
-      <div className="flex-container">
-        {loading}
-        {books.length > 0 && (
+      {loading}
+      {books.length > 0 && (
+        <div className="container">
           <p>
             Showing <strong>{books.length}</strong> of <strong>{count}</strong>{" "}
             results.
           </p>
-        )}
+        </div>
+      )}
+      <div className="grid-container">
         {books.map((book) => (
           <Book book={book} addToBookShelf={addToBookShelf} key={book.key} />
         ))}

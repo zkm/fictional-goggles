@@ -26,4 +26,18 @@ export default defineConfig([
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
   },
+  // Test files: enable Vitest globals (describe, it, expect, vi, etc.)
+  {
+    files: [
+      '**/*.{test,spec}.{js,jsx,ts,tsx}',
+      '**/__tests__/**/*.{js,jsx,ts,tsx}',
+    ],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        ...globals.vitest,
+      },
+    },
+  },
 ])

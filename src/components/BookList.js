@@ -9,7 +9,7 @@ const BookList = ({
 }) => {
   return (
     <section>
-      {loading}
+      {loading && <div>Loading...</div>}
       {books.length > 0 && (
         <div className="container">
           <p>

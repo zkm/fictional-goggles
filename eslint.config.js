@@ -40,4 +40,20 @@ export default defineConfig([
       },
     },
   },
+  // Config files: allow Node.js globals like `process`
+  {
+    files: [
+      '*.config.{js,cjs,mjs,ts}',
+      '**/*.config.{js,cjs,mjs,ts}',
+      'vite.config.*',
+      'postcss.config.*',
+      'tailwind.config.*',
+      'eslint.config.js',
+    ],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
+  },
 ])

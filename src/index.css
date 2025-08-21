@@ -1,12 +1,132 @@
 @import "tailwindcss";
 
+/* Dark mode is enabled via Tailwind config (class strategy) */
+
 /* Base tweaks */
 html:focus-within {
   scroll-behavior: smooth;
 }
+/* Base body styles (light + dark) */
 body {
-  @apply min-h-svh bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 antialiased;
+  min-height: 100svh;
+  /* Softer page background for better separation in light mode */
+  background-color: #f9fafb; /* Tailwind gray-50 */
+  color: #111827; /* Tailwind gray-900 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-* {
-  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500 dark:focus-visible:ring-indigo-400;
+
+.dark body {
+  background-color: #0a0a0a; /* Tailwind gray-950 */
+  color: #f3f4f6; /* Tailwind gray-100 */
 }
+
+/* Accessible focus styles (approximate Tailwind ring) */
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid #6366f1; /* indigo-500 */
+  outline-offset: 2px;
+}
+
+.dark *:focus-visible {
+  outline-color: #818cf8; /* indigo-400 */
+}
+
+/* Make native widgets respect theme */
+html { color-scheme: light; }
+html.dark { color-scheme: dark; }
+
+/* Subtle, accessible text selection */
+::selection {
+  background: #e0e7ff; /* indigo-100 */
+}
+.dark ::selection {
+  background: #312e81; /* indigo-900 */
+}
+
+/* Default link color that works well on light background; components may override */
+/* Use default/inherited link colors; component classes control link styles */
+/* a { color: #4338ca; }
+a:hover { color: #3730a3; } */
+
+/* Ensure inputs are clearly light in light mode by default */
+input,
+select,
+textarea {
+  background-color: #ffffff;
+  color: #111827;
+}
+.dark input,
+.dark select,
+.dark textarea {
+  background-color: #111827;
+  color: #f3f4f6;
+}
+
+/* Headings: ensure strong contrast in both themes */
+h1, h2, h3, h4, h5, h6 {
+  color: #111827; /* gray-900 */
+}
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6 {
+  color: #f3f4f6; /* gray-100 */
+}
+
+/* Paragraphs and labels: readable defaults with good contrast */
+p {
+  color: #374151; /* gray-700 */
+}
+html.dark p {
+  color: #d1d5db; /* gray-300 */
+}
+
+label {
+  color: #1f2937; /* gray-800 */
+}
+html.dark label {
+  color: #e5e7eb; /* gray-200 */
+}
+
+/* Ensure the theme toggle never inherits global button white-on-white */
+.theme-toggle {
+  background-color: #ffffff !important;
+  color: #374151 !important; /* gray-700 */
+  border-color: #d1d5db !important; /* gray-300 */
+}
+.theme-toggle:hover {
+  background-color: #f9fafb !important; /* gray-50 */
+  border-color: #9ca3af !important; /* gray-400 */
+  color: #111827 !important; /* gray-900 */
+}
+.dark .theme-toggle {
+  background-color: transparent !important;
+  color: #e5e7eb !important; /* gray-200 */
+  border-color: #374151 !important; /* gray-700 */
+}
+.dark .theme-toggle:hover {
+  background-color: #111827 !important; /* gray-900 */
+  border-color: #4b5563 !important; /* gray-600 */
+  color: #f9fafb !important; /* gray-50 */
+}
+
+/* Ensure cards are definitely light in light mode */
+.card { background-color: #ffffff !important; }
+.dark .card { background-color: #111827 !important; }
+
+/* Hex-based text utilities to avoid OKLCH output for specific elements */
+.text-hex-gray-800 { color: #1f2937; }
+.text-hex-gray-700 { color: #374151; }
+.text-hex-gray-900 { color: #111827; }
+.dark .text-hex-gray-300 { color: #d1d5db; }
+/* Make .text-hex-gray-900 readable in dark mode */
+.dark .text-hex-gray-900 { color: #d1d5db; }
+
+/* Force white token to be true white in light mode to avoid OKLCH var overrides */
+:root { --color-white: #ffffff !important; }

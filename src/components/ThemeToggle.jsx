@@ -1,11 +1,28 @@
 import { useEffect, useState } from 'react'
 
+function hasStorage() {
+  try {
+    return (
+      typeof window !== 'undefined' &&
+      typeof window.localStorage !== 'undefined' &&
+      typeof window.localStorage.getItem === 'function' &&
+      typeof window.localStorage.setItem === 'function'
+    )
+  } catch {
+    return false
+  }
+}
+
 function getInitialTheme() {
-  // 1) User preference
-  const stored = localStorage.getItem('theme')
+  // 1) User preference (guard for non-browser/test envs)
+  const stored = hasStorage() ? window.localStorage.getItem('theme') : null
   if (stored === 'dark' || stored === 'light') return stored
   // 2) System preference
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  return typeof window !== 'undefined' &&
+    typeof window.matchMedia === 'function' &&
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light'
 }
 
 export default function ThemeToggle() {
@@ -25,7 +42,9 @@ export default function ThemeToggle() {
         if (el !== root && el !== body) el.classList.remove('dark')
       })
     }
-    localStorage.setItem('theme', theme)
+    if (hasStorage()) {
+      window.localStorage.setItem('theme', theme)
+    }
   }, [theme])
 
   return (
